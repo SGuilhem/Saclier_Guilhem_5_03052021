@@ -1,2 +1,6 @@
 @import "_variable_overrides";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+#navbarContent {
+  text-align: right;
+}
