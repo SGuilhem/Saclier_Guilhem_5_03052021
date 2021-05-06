@@ -1,6 +1,11 @@
-$headings-color: red;
-$headings-font-family: "Times New Roman", Times, serif;
-
-#navbar-collapse {
+.navbar-collapse {
   text-align: right;
 }
+
+a.btn-to-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+$primary:  #87CEEB;

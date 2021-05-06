@@ -10,6 +10,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+  <script type="text/javascript" src="./js/index.js" defer></script>
+
   <title>Orinoco - Accueil</title>
 
 
@@ -24,7 +26,7 @@
 
 <body>
 
-  <div class="header bg-dark">
+  <div class="header bg-primary">
     <div class="container">
       <div class="row">
         <nav class="col navbar navbar-expand-lg navbar-dark">
@@ -35,14 +37,34 @@
           <div id="navbarContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-item nav-link mx-3 active" href="index.html">Accueil</a>
+                <a class="nav-item nav-link mx-3 text-dark active" href="index.html">Accueil</a>
               </li>
               <li class="nav-item">
-                <a class="nav-item nav-link mx-3" href="cart.html">Mon panier</a>
+                <a class="nav-item nav-link text-dark mx-3" href="cart.html">Mon panier</a>
               </li>
             </ul>
           </div>
         </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="main bg-light">
+    <div class="container">
+      <h1>Catalogue</h1>
+      <div class="row shadow-lg pt-4" id="products">
+        <template id="templateProduct">
+          <article class="card col-12 col-lg-4">
+            <div class="card mb-4 my-lg-2 shadow">
+              <img class="card-img-top" src="img/vcam_1.jpeg" alt="Camera Zurss 50S">
+              <div class="card-body">
+                <h5 class="card-title" id="card-title">Zurss 50S</h5>
+                <p class="card-price" id="card-price">499€</p>
+                <a class="btn btn-primary" href="cart.html" role="button">Voir la fiche produit.</a>
+              </div>
+            </div>
+          </article>
+        </template>
       </div>
     </div>
   </div>
