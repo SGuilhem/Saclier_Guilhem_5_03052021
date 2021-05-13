@@ -13,4 +13,35 @@ a.btn-to-cart {
   justify-content: center;
 }
 
+.productSheet {
+  display: flex;
+}
+
+.lensChoice {
+  display: flex;
+  align-items: center;
+}
+
+.card.col-12.col-lg-12 {
+  flex-direction: row;
+}
+
+div.quantity.col-12.col-lg-7 {
+  display: flex;
+  align-items: baseline;
+}
+
+input#numberOfObj {
+  width: 50px;
+  margin-left: 10px;
+}
+
+.totalPrice {
+  display: flex;
+}
+
+#totalPrice {
+  margin-left: 10px;
+}
+
 $primary:  #87CEEB;

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+  <!-- Required meta tags -->
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script type="text/javascript" src="./sheet.js" defer></script>
+
+
+  <title>Orinoco - Accueil</title>
+
+
+  <!-- Bootstrap CSS -->
+
+  <link rel="stylesheet" href="css/style.css" />
+
+
+  <title>Hello, world!</title>
+
+</head>
+
+<body>
+
+  <div class="header bg-primary">
+    <div class="container">
+      <div class="row">
+        <nav class="col navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="./index.html"><img src="img/logo.png" width="90" height="50" alt="Logo Orinoco"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div id="navbarContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-item nav-link mx-3 text-dark active" href="./index.html">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-item nav-link text-dark mx-3" href="./cart.html">Mon panier</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="main bg-light">
+    <div class="container">
+      <h1>Fiche produit</h1>
+      <div class="row shadow-lg">
+        <div class="productSheet" id="productSheet">
+          <template id=templateSheet>
+            <div class="card col-12 col-lg-12">
+              <div class="my-4 my-lg-2 shadow">
+                <div id="cameraImg">
+                  <div class="card-body">
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-7">
+                <div class="card my-4 my-lg-2 shadow">
+                  <div class="card-body">
+                    <h3 class="cameraName" id="cameraName"></h3>
+                    <p class="cameraDescription" id="cameraDescription"></p>
+                    <div class="lensChoice">
+                      <p>Choisissez votre objectif:</p>
+                      <div class="btn-group dropright">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Quel Objectif?
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                          <li><a tabindex="-1" href="#">50mm 1.4</a></li>
+                          <li><a tabindex="-1" href="#">35mm 1.8</a></li>
+                          <li><a tabindex="-1" href="#">28-200mm 2.8/4.5</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="quantity col-12 col-lg-7">
+                      <p>Quantité</p><input type="number" id="numberOfObj"/>
+                    </div>
+                    <div class="totalPrice col-12 col-lg-7">
+                      <p>Prix total:</p><div id="totalPrice">#PrixTotal</div>
+                    </div>
+                    <div id="addToCart"></div>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  </body>
+
+  </html>
