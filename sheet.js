@@ -36,10 +36,20 @@ function getProducts() {                  // Récupérer les caractéristiques d
     `
     cloneElt.getElementById("cameraName").innerHTML = product.name
     cloneElt.getElementById("cameraDescription").innerHTML = product.description
-    /* for (var i = 0; i < product.lenses.length; i++) {
-      cloneElt.getElementById("cameraLenses").innerHTML = `<a tabindex="-1" href="#">${product.lenses[i]}</a>`
-    } */
-    document.getElementById("productSheet").appendChild(cloneElt)
 
-    console.log(product.name)
-  }
+    for (var i = 0; i < product.lenses.length; i++) {
+      cloneElt.getElementById("cameraLenses").innerHTML += `<a tabindex="-1" href="#" id="cameraLenses">${product.lenses[i]}</br></a>`
+    }
+
+
+cloneElt.getElementById("cameraLenses").onclick = function(event) {
+    document.getElementById("caret").innerHTML = event.target.value
+}
+
+document.getElementById("productSheet").appendChild(cloneElt)
+}
+
+function totalPrice() {
+  var x = document.getElementById("numberOfObj").value;
+  document.getElementById("sumTotalPrice").innerHTML = 599 * x + ` €`;
+}

@@ -30,7 +30,7 @@ function displayProduct(product){       // Template cloné pour les produits du 
   cloneElt.getElementById("cameraURL").innerHTML = `<a class="btn btn-primary btn-to-cart" role="button" href="./product.html?id=${product._id}">Voir la fiche produit.</a>
   `
   cloneElt.getElementById("cameraName").innerHTML = product.name
-  cloneElt.getElementById("cameraPrice").innerHTML =  `${product.price} €`
+  cloneElt.getElementById("cameraPrice").innerHTML =  `${product.price/100} €`
 
   document.getElementById("main").appendChild(cloneElt)
 

@@ -32,12 +32,16 @@ div.quantity.col-12.col-lg-7 {
 }
 
 input#numberOfObj {
-  width: 50px;
+  width: 70px;
   margin-left: 10px;
 }
 
 .totalPrice {
   display: flex;
+}
+
+#sumTotalPrice {
+  padding-left: 20px;
 }
 
 #totalPrice {
