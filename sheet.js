@@ -32,7 +32,7 @@ function getProducts() {                  // Récupérer les caractéristiques d
     const cloneElt = document.importNode(templateElt.content, true)
 
     cloneElt.getElementById("cameraImg").innerHTML = `<img class="card-img-top"src=${product.imageUrl} alt="Camera">`
-    cloneElt.getElementById("addToCart").innerHTML = `<a class="btn btn-primary btn-to-cart" role="button" href="../cart/html">Ajouter au panier.</a>
+    cloneElt.getElementById("addToCart").innerHTML = `<a class="btn btn-primary btn-to-cart" onclick="emptyCart()" role="button" href="./cart.html">Ajouter au panier</a>
     `
     cloneElt.getElementById("cameraName").innerHTML = product.name
     cloneElt.getElementById("cameraDescription").innerHTML = product.description
@@ -42,14 +42,22 @@ function getProducts() {                  // Récupérer les caractéristiques d
     }
 
 
-cloneElt.getElementById("cameraLenses").onclick = function(event) {
-    document.getElementById("caret").innerHTML = event.target.value
-}
+    cloneElt.getElementById("cameraLenses").onclick = function(event) {
+      document.getElementById("caret").innerHTML = product.lenses
+    }
 
-document.getElementById("productSheet").appendChild(cloneElt)
-}
+    document.getElementById("productSheet").appendChild(cloneElt)
+  }
 
-function totalPrice() {
-  var x = document.getElementById("numberOfObj").value;
-  document.getElementById("sumTotalPrice").innerHTML = 599 * x + ` €`;
+  function totalPrice() {
+    var numberOfObj = document.getElementById("numberOfProduct").value;
+    document.getElementById("sumTotalPrice").innerHTML = 599 * numberOfObj + ` €`;
+  }
+
+  function emptyCart() {
+    var numberOfObj = document.getElementById("numberOfProduct").value;
+      if (numberOfObj <= "0") {
+        alert("Aucun article à ajouter au panier.");
+        event.preventDefault();
+}
 }

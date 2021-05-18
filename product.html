@@ -69,7 +69,8 @@
                     <h3 class="cameraName" id="cameraName"></h3>
                     <p class="cameraDescription" id="cameraDescription"></p>
                     <div class="btn-group dropright">
-                      <button class="btn">Choisissez votre objectif:</button>
+                      <div class="lenseChoice"
+                      <p>Choisissez votre objectif:</p>
                       <button class="btn dropdown-toggle" data-toggle="dropdown">
                         <span id="caret">Objectif</span>
                       </button>
@@ -77,10 +78,10 @@
                         <li><div class="cameraLenses" id="cameraLenses"></div></li>
                       </ul>
                     </div>
-
+                  </div>
 
                     <div class="quantity col-12 col-lg-7">
-                      <p>Quantité</p><input type="number" class="form-control" id="numberOfObj" min="0" placeholder="0" oninput="totalPrice()">
+                      <p>Quantité</p><input type="number" class="form-control" id="numberOfProduct" min="0" placeholder="0" oninput="totalPrice()">
                     </div>
                     <div class="totalPrice col-12 col-lg-7">
                       <p>Prix total: </p>

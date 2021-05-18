@@ -31,7 +31,12 @@ div.quantity.col-12.col-lg-7 {
   align-items: baseline;
 }
 
-input#numberOfObj {
+.lenseChoice {
+  display: flex;
+  align-items: baseline;
+}
+
+input#numberOfProduct {
   width: 70px;
   margin-left: 10px;
 }
