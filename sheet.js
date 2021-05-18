@@ -1,63 +1,50 @@
-getProductArray()
+window.addEventListener('DOMContentLoaded', ()=> {
 
-async function getProductArray() {       // Afficher les information des produits dans le catalogue de la page d'Accueil
-  const products = await getProducts()
-  const product = await getProducts()
-  console.log(product.name)
-  console.log(product.description)
-  console.log(product.price)
-  for (var i = 0; i < product.lenses.length; i++) {
-    console.log(product.lenses[i])
-  }
-  displayProductSheet(product)
-}
-
-function getProducts() {                  // Récupérer les caractéristiques des produits depuis l'API
   var parsedUrl = new URL(window.location.href);
   const idProduct = parsedUrl.searchParams.get("id");
-  return fetch(`http://localhost:3000/api/cameras/${idProduct}`)
+  fetch(`http://localhost:3000/api/cameras/${idProduct}`)
     .then(function(httpBodyResponse) {
       return httpBodyResponse.json();
     })
-    .then(function(products) {
-      return products;
+    .then(function(product) {
+      displayProductSheet(product)
     })
     .catch(function(error) {
       alert(error)
     })
-  }
 
-  function displayProductSheet(product){
-    const templateElt = document.getElementById("templateSheet")
-    const cloneElt = document.importNode(templateElt.content, true)
+    function displayProductSheet(product){
+      document.getElementById("cameraImg").innerHTML = `<img class="card-img-top"src="${product.imageUrl}" alt="Camera">`
+      document.getElementById("cameraName").innerHTML = product.name
+      document.getElementById("cameraDescription").innerHTML = product.description
 
-    cloneElt.getElementById("cameraImg").innerHTML = `<img class="card-img-top"src=${product.imageUrl} alt="Camera">`
-    cloneElt.getElementById("addToCart").innerHTML = `<a class="btn btn-primary btn-to-cart" onclick="emptyCart()" role="button" href="./cart.html">Ajouter au panier</a>
-    `
-    cloneElt.getElementById("cameraName").innerHTML = product.name
-    cloneElt.getElementById("cameraDescription").innerHTML = product.description
-
-    for (var i = 0; i < product.lenses.length; i++) {
-      cloneElt.getElementById("cameraLenses").innerHTML += `<a tabindex="-1" href="#" id="cameraLenses">${product.lenses[i]}</br></a>`
+      for (var i = 0; i < product.lenses.length; i++) {
+        document.querySelector(".lenseChoice").innerHTML += `<option value="${i}">${product.lenses[i]}</option>`
+      }
     }
 
 
-    cloneElt.getElementById("cameraLenses").onclick = function(event) {
-      document.getElementById("caret").innerHTML = product.lenses
-    }
-
-    document.getElementById("productSheet").appendChild(cloneElt)
+    let btnQuantity = document.querySelectorAll(".group-quantity .btn");
+    for (let i in btnQuantity) {
+    btnQuantity[i].addEventListener("click", event =>{
+      let quantity = Number(document.querySelector("input#quantity").value)
+      if (event.target.classList.contains("btn-less")) {
+        quantity = quantity == 1? 1 : quantity - 1;
+      } else {
+        quantity = quantity + 1
+      }
+      document.querySelector("#quantity").value = quantity
+      document.querySelector(".btn-to-cart span").innerHTML = 599 * quantity + ` €`;
+    })
   }
 
-  function totalPrice() {
-    var numberOfObj = document.getElementById("numberOfProduct").value;
-    document.getElementById("sumTotalPrice").innerHTML = 599 * numberOfObj + ` €`;
-  }
-
-  function emptyCart() {
-    var numberOfObj = document.getElementById("numberOfProduct").value;
+    document.querySelector(".btn-to-cart").addEventListener("click", event => {
+      var numberOfObj = document.getElementById("quantity").value;
       if (numberOfObj <= "0") {
         alert("Aucun article à ajouter au panier.");
         event.preventDefault();
-}
-}
+      } else {
+        localStorage.setItem("cart", );
+      }
+    })
+  })
