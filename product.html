@@ -48,6 +48,7 @@
     </div>
   </div>
 
+
   <div class="main bg-light">
     <div class="container">
       <h1>Fiche produit</h1>
@@ -61,12 +62,12 @@
               </div>
             </div>
             <div class="col-12 col-lg-7">
-              <div class="card my-4 my-lg-2 shadow">
+              <div class="card product my-4 my-lg-2 shadow">
                 <div class="card-body">
                   <h3 class="cameraName" id="cameraName"></h3>
                   <p class="cameraDescription" id="cameraDescription"></p>
                   <div class="form-group">
-                    <select class="form-control lenseChoice">
+                    <select class="form-control lenseChoice" id="lenseChoice">
                       <option value="">Choisir un objectif</option>
                     </select>
                   </div>
@@ -74,7 +75,7 @@
                     <div class="input-group group-quantity">
                       <div class="input-group-prepend">
                       </div>
-                      <input type="number" class="form-control" id="quantity" min="1" value="1" readonly>
+                      <input type="number" class="form-control" name="quantity" id="quantity" min="1" value="1" readonly>
                       <div class="input-group-append">
                         <button class="btn btn-info btn-less" type="button" name="button">-</button>
                         <button class="btn btn-info btn-more" type="button" name="button">+</button>
@@ -83,8 +84,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <button class="btn btn-primary btn-to-cart" role="button"><a href="./cart.html">Ajouter au panier <span></span></a></button>
-
+                  <a href="./cart.html" class="btn btn-primary" id="btn-to-cart" role="button">Ajouter au panier <span></span></a>
                 </div>
               </div>
             </div>
@@ -105,7 +105,7 @@
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-  <script type="text/javascript" src="./sheet.js" defer></script>
+  <script type="text/javascript" src="./js/sheet.js" defer></script>
 
 </body>
 

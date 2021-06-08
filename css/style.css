@@ -32,14 +32,18 @@ div.quantity.col-12.col-lg-7 {
   align-items: baseline;
 }
 
-.lenseChoice {
-  display: flex;
-  align-items: baseline;
+select.form-control.lenseChoice {
+  width: 250px;
 }
 
-input#numberOfProduct {
-  width: 70px;
+div.input-group.group-quantity {
+  width: 145px;
   margin-left: 10px;
+}
+
+div.card-footer {
+  display: flex;
+  justify-content: center;
 }
 
 .card-footer a {
