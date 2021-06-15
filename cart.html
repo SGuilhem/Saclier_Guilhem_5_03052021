@@ -48,27 +48,45 @@
 
   <div class="container">
     <h1>Commandes</h1>
-    <div class="row shadow-lg">
-            <div class="card col-12 col-lg-4">
-              <div class="my-4 my-lg-2 shadow">
-                <div class="card-body">
+    <div class="cart" id="cart">
+        <!-- <template id="templateCart"> -->
+        <div class="card-body row shadow-lg">
+          <div class="card col-12 col-lg-4">
+            <div class="my-4 my-lg-2 shadow">
+              <div id="cameraImg">
+              </div>
+            </div>
+          </div>
+          <div class="quantity totalPrice col-12 col-lg-7">
+            <div class="quantity totalPrice col-12 col-lg-7">
+              <p>Quantité:</p>
+              <div class="form-group">
+                <div class="input-group group-quantity">
+                  <div class="input-group-prepend">
+                  </div>
+                  <input type="number" class="form-control" name="quantity" id="quantity" min="1" readonly>
+                  <div class="input-group-append">
+                    <button class="btn btn-info btn-less" type="button" name="button">-</button>
+                    <button class="btn btn-info btn-more" type="button" name="button">+</button>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="quantity col-12 col-lg-7">
-              <p>Quantité</p><input type="number" class="form-control" id="numberOfProduct" min="0" placeholder="0" oninput="totalPrice()">
               <div class="totalPrice col-12 col-lg-7">
                 <p>Prix: </p>
-            </div>
-            <div class="totalPrice col-12 col-lg-7">
-              <p>Prix total: </p>
-            <div class="sumTotalPrice">
+                <div id="productTotalPrice">
               </div>
-              <p id="sumTotalPrice"></p>
             </div>
+          </div>
+        </div>
+        <div class="totalPrice col-12 col-lg-7">
+          <p>Prix total: </p>
+          <div class="sumTotalPrice">
+          </div>
+          <p id="sumTotalPrice"></p>
+        </div>
+    <!--  </template> -->
     </div>
   </div>
-
 
 
   <!-- Optional JavaScript -->
@@ -80,6 +98,8 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="./js/cart.js" defer></script>
 
 </body>
 

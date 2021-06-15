@@ -48,7 +48,6 @@ function displayProductSheet(product){
     document.querySelector(".lenseChoice").innerHTML += `<option value="${i}">${product.lenses[i]}</option>`
   }
 
-
 let btnQuantity = document.querySelectorAll(".group-quantity .btn");
 for (let i = 0; i < btnQuantity.length; i++ ) {
   let button = btnQuantity[i];

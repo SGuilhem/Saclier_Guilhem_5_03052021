@@ -3,7 +3,6 @@ main()
 async function main() {                       // Afficher les produits dans le catalogue de la page d'Accueil
   const products = await getProducts()
   for (product of products) {
-    console.log(products)
     displayProduct(product)
   }
 }
@@ -17,7 +16,7 @@ function getProducts() {                  // Récupérer les caractéristiques d
     return products;
   })
   .catch(function(error) {
-    alert(error)
+    alert("Serveur indisponible")
   })
 }
 

@@ -51,3 +51,12 @@ justify-content: center;
 }
 
 $primary:  #87CEEB;
+
+.totalPrice {
+  display: flex;
+  margin-left: 0px;
+}
+
+#productTotalPrice {
+  margin-left: 10px;
+}

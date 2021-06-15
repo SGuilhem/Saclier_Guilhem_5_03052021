@@ -51,6 +51,15 @@ div.card-footer {
   color: black;
 }
 
+.totalPrice {
+  display: flex;
+  margin-left: 0px;
+}
+
+#productTotalPrice {
+  margin-left: 10px;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
