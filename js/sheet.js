@@ -42,6 +42,7 @@ function displayProductSheet(product){
   document.getElementById("cameraName").innerHTML = product.name
   document.getElementById("cameraDescription").innerHTML = product.description
   document.querySelector("#btn-to-cart span").innerHTML = `${product.price/100} €`
+  console.log(product.price)
 
 
   for (var i = 0; i < product.lenses.length; i++) {
