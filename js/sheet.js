@@ -53,7 +53,7 @@ let btnQuantity = document.querySelectorAll(".group-quantity .btn");
 for (let i = 0; i < btnQuantity.length; i++ ) {
   let button = btnQuantity[i];
   button.addEventListener("click", event => {
-    let quantity = Number(document.querySelector("input#quantity").value)
+    let quantity = Number(document.querySelector("#quantity").value)
     if (event.target.classList.contains("btn-less")) {
       quantity = quantity == 1? 1 : quantity - 1;
     } else {

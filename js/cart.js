@@ -2,20 +2,14 @@ window.addEventListener('DOMContentLoaded', ()=> {
 
   const panier = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : {}
   const productId = (Object.keys(panier))
-  const btns = document.querySelector('#btn-to-empty-cart')
-
-
-  console.log(panier)
-  console.log(Object.values(panier)[0])
-  console.log(Object.values(panier)[1])
-  console.log(Object.values(panier)[2])
-
+  const btnEmpty = document.querySelector('#btn-empty')
 
 
   if (localStorage.getItem("cart") === null) {
     document.querySelector(".emptyCart").innerHTML = `Votre panier est vide`;
-    document.querySelector(".totalPrice").style.visibility = "hidden";
+    document.querySelector("#cart").style.visibility = "hidden";
     document.querySelector(".card-footer").style.visibility = "hidden";
+    document.querySelector(".center_div").style.visibility = "hidden";
   }
 
 
@@ -25,8 +19,11 @@ window.addEventListener('DOMContentLoaded', ()=> {
   })
   .then(function(products) {
     for (product of products) {
-      displayCart(product)
+      if (panier.hasOwnProperty(product._id)) {
+        displayCart(product)
+      }
     }
+    totalCart()
   })
   .catch(function(error) {
     alert("Serveur indisponible")
@@ -34,43 +31,65 @@ window.addEventListener('DOMContentLoaded', ()=> {
 
 
   function displayCart(product){
-    const templateElt = document.getElementById("templateProduct")
+    const templateElt = document.querySelector("#templateProduct")
     const cloneElt = document.importNode(templateElt.content, true)
 
+    cloneElt.querySelector(".productName span").innerHTML = `${product.name}`
+    cloneElt.querySelector(".productPrice span").innerHTML = `${product.price/100} €`
 
-    if (panier.hasOwnProperty(product._id)) {
-      cloneElt.getElementById("cameraImg").innerHTML = `<img class="card-img-top"src="${product.imageUrl}" alt="Camera">`
+    let quantity = panier[product._id]
+    cloneElt.querySelector(".quantity").value = quantity;
 
-        for (var i = 0; i < Object.values(panier).length; i++) {
+    cloneElt.querySelector(".total").textContent = `${product.price/100 * quantity} €`
 
-        cloneElt.getElementById("quantity").value = Object.values(panier)[i]
-        cloneElt.querySelector("#productTotalPrice").innerHTML = `${product.price/100 /** Object.values(panier)*/} €`
-        console.log(product.price/100)
-      }
+    let btnQuantity = cloneElt.querySelectorAll(".group-quantity .btn");
+    for (let i = 0; i < btnQuantity.length; i++ ) {
+      let button = btnQuantity[i];
+      button.addEventListener("click", function(event) {
+        let element = button.closest("tr")
+        let quantity = Number(element.querySelector(".quantity").value)
+        if (button.classList.contains("btn-less")) {
+          quantity = quantity == 1? 1 : quantity - 1;
+        } else {
+          quantity = quantity + 1
+        }
+        element.querySelector(".quantity").value = quantity;
+        element.querySelector(".total").textContent =  `${product.price/100 * quantity} €`;
+
+        panier[product._id] = quantity
+        localStorage.setItem('cart', JSON.stringify(panier))
+
+        totalCart()
+      })
+    }
+
+    cloneElt.querySelector(".delete").addEventListener("click", (event) => {
+      deleteProduct(product._id)
+    })
 
     document.getElementById("cart").appendChild(cloneElt)
   }
-}
 
-let btnQuantity = document.querySelectorAll(".group-quantity .btn");
-for (let i = 0; i < btnQuantity.length; i++ ) {
-  let button = btnQuantity[i];
-  button.addEventListener("click", event => {
-    let quantity = Number(document.querySelector("input#quantity").value)
-    if (event.target.classList.contains("btn-less")) {
-      quantity = quantity == 1? 1 : quantity - 1;
-    } else {
-      quantity = quantity + 1
+  function totalCart(){
+    let totalProduct = document.querySelectorAll(".total")
+    let totalCart = 0;
+    for (var i = 0; i < totalProduct.length; i++){
+      let price = totalProduct[i].textContent
+      totalCart += Number(price.substr(0, price.length-2));
     }
+    document.querySelector(".totalPrice").innerHTML = `${totalCart} €`
 
-    document.querySelector("#quantity").value = quantity
-    document.querySelector("#productTotalPrice").innerHTML =  `${product.price/100 * quantity} €`;
+  }
+
+  function deleteProduct(id) {
+    delete panier[id]
+    localStorage.setItem("cart", JSON.stringify(panier))
+    window.location.reload()
+  }
+
+  btnEmpty.addEventListener("click", (event) => {
+    localStorage.removeItem('cart')
   })
-}
-
-btns.addEventListener("click", (event) => {
-  localStorage.removeItem('cart')
-})
 
 
 

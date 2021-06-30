@@ -60,6 +60,38 @@ div.card-footer {
   margin-left: 10px;
 }
 
+table {
+  width: 80%;
+  margin: 20px auto;
+}
+
+table thead th {
+  width: 30%;
+  text-align: left;
+  font-weight: bold;
+}
+
+table thead tr th {
+  border-bottom: 2px solid blue;
+}
+
+table tbody td {
+  text-align: left;
+}
+
+table tbody tr td {
+  border-bottom: 2px solid bl ue;
+}
+
+.card-footer {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+div.container.center_div {
+  margin: 0 auto;
+  width: 50%;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
