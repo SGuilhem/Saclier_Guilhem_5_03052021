@@ -1,2 +1,58 @@
-@import "_variable_overrides.scss";
+$primary:  #87CEEB;
+$border-radius: 0;
+
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+ #navbarContent a:hover {
+    text-decoration: underline;
+}
+
+.card-product img {
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+}
+
+select.form-control.lenseChoice {
+  width: 250px;
+}
+
+.validateSubmit {
+  text-align: center;
+  margin-bottom: 70px;
+  }
+
+#submitButton {
+  margin-top: 10px;
+}
+
+
+#productTotalPrice {
+  margin-left: 10px;
+}
+
+.main-form {
+  width: 650px;
+  margin: auto;
+}
+
+.card-img-top {
+  height: 100%;
+}
+
+body .container .confirmation {
+  margin-top: 5.5rem;
+}
+
+body .main .container .validated {
+  margin-top: 3rem;
+}
+
+.container .textConfirmation p {
+  font-size: 18px;
+  text-align: center;
+}
+
+.container .textConfirmation p span {
+  font-weight: bold;
+}

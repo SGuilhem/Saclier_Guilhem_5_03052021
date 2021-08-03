@@ -32,7 +32,7 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div id="navbarContent" class="collapse navbar-collapse">
+          <div id="navbarContent" class="collapse text-right navbar-collapse">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
                 <a class="nav-item nav-link mx-3 text-dark active" href="index.html">Accueil</a>
@@ -48,14 +48,12 @@
   </div>
 
 
-  <div class="main bg-light">
+  <div class="main">
     <div class="container">
-      <h1>Validation de votre commande</h1>
-      <div class="row shadow-lg">
-        <div class="main" id="main">
-          <p>Bonjour <span id="customerName"></span> et merci pour votre commande!</p>
-          <p><br>Nous vous confirmons ici la validation de votre commande <span id="commandNumber"></span>
-          <p>Un email récapitulatif de votre commande vous sera envoyé à l'adresse renseignée (<span id="customerMail"></span>)</p>
+      <h1 class="validated">Validation de votre commande</h1>
+      <div class="row shadow-lg confirmation">
+        <div class="textConfirmation">
+          <p>Bonjour <span id="customerName"></span> et merci pour votre commande!<br>Nous vous confirmons ici la validation de votre commande <span id="commandNumber"></span>. Un email récapitulatif de votre commande vous sera envoyé à l'adresse renseignée (<span id="customerMail"></span>)</p>
         </div>
       </div>
     </div>

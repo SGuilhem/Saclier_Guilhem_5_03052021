@@ -24,12 +24,12 @@
   <div class="header bg-primary">
     <div class="container">
       <div class="row">
-        <nav class="col navbar navbar-expand-lg navbar-dark">
+        <nav class="col text-sm-right navbar navbar-expand-lg navbar-dark">
           <a class="navbar-brand" href="index.html"><img src="img/logo.png" width="90" height="50" alt="Logo Orinoco"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div id="navbarContent" class="collapse navbar-collapse">
+          <div id="navbarContent" class="collapse text-right navbar-collapse">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
                 <a class="nav-item nav-link mx-3 text-dark active" href="index.html">Accueil</a>
@@ -44,29 +44,26 @@
     </div>
   </div>
 
-  <div class="main bg-light">
-    <div class="container">
-      <h1>Catalogue</h1>
-      <div class="row shadow-lg">
-        <div class="main" id="main">
-          <template id="templateProduct">
-            <div class="card col-12 col-lg-4">
-              <div class="card my-4 my-lg-2 shadow">
-                <div id="cameraImg"></div>
-                <div class="card-body">
-                  <h5 class="cameraName" id="cameraName"></h5>
-                  <p class="cameraPrice" id="cameraPrice"></p>
-                  <div id="cameraURL"></div>
-                </div>
-              </div>
-            </div>
-          </template>
-        </div>
-      </div>
+  <div class="container">
+    <h1>Catalogue</h1>
+    <div class="main row" id="main">
+
     </div>
   </div>
 </div>
 
+<template id="templateProduct">
+  <div class="col-12 col-lg-4">
+    <div class="card card-product my-4 my-lg-2 shadow">
+      <img class="card-img-top" src="#" alt="Camera">
+      <div class="card-body">
+        <h5 class="cameraName" ></h5>
+        <p class="cameraPrice" ></p>
+        <a class="btn btn-primary btn-to-cart" role="button" href="#">Voir la fiche produit.</a>
+      </div>
+    </div>
+  </div>
+</template>
 
 
 <!-- Optional JavaScript -->

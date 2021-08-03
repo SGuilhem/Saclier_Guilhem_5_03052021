@@ -25,11 +25,10 @@ function displayProduct(product){       // Template cloné pour les produits du 
   const templateElt = document.getElementById("templateProduct")
   const cloneElt = document.importNode(templateElt.content, true)
 
-  cloneElt.getElementById("cameraImg").innerHTML = `<img class="card-img-top"src=${product.imageUrl} alt="Camera">`
-  cloneElt.getElementById("cameraURL").innerHTML = `<a class="btn btn-primary btn-to-cart" role="button" href="./product.html?id=${product._id}">Voir la fiche produit.</a>
-  `
-  cloneElt.getElementById("cameraName").innerHTML = product.name
-  cloneElt.getElementById("cameraPrice").innerHTML =  `${product.price/100} €`
+  cloneElt.querySelector("img").src = product.imageUrl
+  cloneElt.querySelector("a").href = `./product.html?id=${product._id}`
+  cloneElt.querySelector("h5").textContent = product.name
+  cloneElt.querySelector("p").textContent =  `${product.price/100} €`
 
   document.getElementById("main").appendChild(cloneElt)
 

@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
   if (productId.length === 0) {
     document.querySelector(".emptyCart").innerHTML = `Votre panier est vide`;
     document.querySelector("#cart").style.visibility = "hidden";
-    document.querySelector(".card-footer").style.visibility = "hidden";
+    document.querySelector(".empty").style.visibility = "hidden";
     document.querySelector(".center_div").style.visibility = "hidden";
   }
 
@@ -68,7 +68,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
       deleteProduct(product._id)
     })
 
-    document.getElementById("cart").appendChild(cloneElt)
+    document.querySelector(".cart tbody").appendChild(cloneElt)
   }
 
   function totalCart(){
@@ -103,7 +103,7 @@ window.addEventListener('DOMContentLoaded', ()=> {
       form.classList.add('was-validated');
     } else {
       let contact = {firstName: document.querySelector("#inputFirstName").value, lastName: document.querySelector("#inputName").value, address: document.querySelector("#inputAdress").value, city:	document.querySelector("#inputCity").value, email:	document.querySelector("#inputEmail").value}
-      let products = [Object.keys(panier)]
+      let products = Object.keys(panier)
       let order = {contact, products}
 
       fetch('http://localhost:3000/api/cameras/order', {
@@ -119,34 +119,12 @@ window.addEventListener('DOMContentLoaded', ()=> {
         localStorage.setItem('customerFirstName', Object.values(data.contact)[0])
         localStorage.setItem('customerEmail', Object.values(data.contact)[4])
 
-        localStorage.removeItem('cart')
-        document.location.href=`./confirmation.html?orderid=${Object.values(data)[2]}`
+      localStorage.removeItem('cart')
+      document.location.href=`./confirmation.html?orderid=${Object.values(data)[2]}`
       })
       .catch((error) => {
         console.error('Error:', error);
       });
     }
   })
-
-
-
-  /**  function storeCommandInfo() {
-  btnSubmit.addEventListener("click", (event) => {
-    debugger
-    let customerName = document.getElementById("inputFirstName").value;
-    let customerEmail = document.getElementById("inputEmail").value;
-    alert(customerName)
-
-    if (panier.hasOwnProperty(idProduct)) {
-    panier[idProduct] += Number(quantity)
-  } else {
-  panier[idProduct] = Number(quantity)
-}
-
-localStorage.setItem('cart', JSON.stringify(panier))
-})
-}
-})
-} **/
-
 })
